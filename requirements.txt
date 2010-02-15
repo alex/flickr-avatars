@@ -1,0 +1,4 @@
+Django
+pyquery
+
+-e git+git://github.com/alex/django-wsgi.git#egg=django_wsgi
