@@ -8,6 +8,7 @@ settings.configure(
     TEMPLATE_DIRS=[
         os.path.join(os.path.dirname(__file__), "templates")
     ],
+    DEBUG=True
 )
 
 from django.core.cache import cache
@@ -39,8 +40,13 @@ urlpatterns = patterns("",
     url(r"^$", "django.views.generic.simple.direct_to_template",
         {"template": "home.html"}),
     url(r"^i/(?P<username>.*?)\.jpg", avatar),
-    url(r"^static/(?P<path>.*)$", "django.views.static.serve",
-        {"document_root": os.path.join(os.path.dirname(__file__), "static")})
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns("",
+        url(r"^static/(?P<path>.*)$", "django.views.static.serve",
+            {"document_root": os.path.join(os.path.dirname(__file__), "static")})
+    )
+
 
 application = wsgi_application(urlpatterns)
