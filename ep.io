@@ -1,2 +1,0 @@
-[wsgi]
-entrypoint = app:app
