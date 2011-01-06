@@ -8,7 +8,6 @@ settings.configure(
     TEMPLATE_DIRS=[
         os.path.join(os.path.dirname(__file__), "templates")
     ],
-    DEBUG=True
 )
 
 from django.core.cache import cache
